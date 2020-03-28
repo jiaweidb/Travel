@@ -16,9 +16,9 @@ export default {
         return {
             swiperOptions: {
                 pagination: '.swiper-pagination',
-                loop: true
+                loop: true//让这个swiper轮播插件支持轮播
             },
-            swiperList: [{
+            swiperList: [{//轮播列表将直接输出形式改为列表输出形式，简易代码
                 id: '001',
                 imgUrl: "https://imgs.qunarzz.com/vc/e3/a1/71/f498dfd3bed948d623c9093252.jpg_92.jpg" 
             },{
@@ -44,5 +44,4 @@ export default {
     background: #ccc
     .swiper-img
       width:100%
-
 </style>
