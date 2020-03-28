@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-        <swiper>
+        <swiper :options="swiperOptions1">
             <swiper-slide v-for="(page, index) of pages" :key="index">
                 <div class="icon"  v-for="item of page" :key="item.id">
                     <div class="icon-img">
@@ -16,59 +16,21 @@
 <script>
 export default {
     name: 'HomeIcons',
+    props: {
+        list: Array
+    },
     data () {
         return {
-            iconsList: [{
-                id: '001',
-                imgUrl: "https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-                desc: "热门景点热热热热热热 "
-            },
-            {
-                id: '002',
-                imgUrl: "https://imgs.qunarzz.com/piao/fusion/1803/67/9a1678221b8e0e02.png",
-                desc: "热门景点"
-            },
-            {
-                id: '003',
-                imgUrl: "https://imgs.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
-                desc: "一日游"
-            },
-            {
-                id: '004',
-                imgUrl: "https://imgs.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png",
-                desc: "踏青赏花"
-            },
-            {
-                id: '005',
-                imgUrl: "https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-                desc: "热门景点"
-            },
-            {
-                id: '006',
-                imgUrl: "https://imgs.qunarzz.com/piao/fusion/1803/67/9a1678221b8e0e02.png",
-                desc: "热门景点"
-            },
-            {
-                id: '007',
-                imgUrl: "https://imgs.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
-                desc: "一日游"
-            },
-            {
-                id: '008',
-                imgUrl: "https://imgs.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png",
-                desc: "踏青赏花"
-            },{
-                id: '009',
-                imgUrl: "https://imgs.qunarzz.com/piao/fusion/1803/8c/47630407f70e8302.png",
-                desc: "影城"
-            }]
+            swiperOptions1: {
+                autoplay: false
+            }
         }
     },
     //根据数据项的不同，做到多页切换的功能
     computed: {
         pages () {
             const pages = []
-            this.iconsList.forEach((item, index) => {
+            this.list.forEach((item, index) => {
                 const page  = Math.floor(index / 8)
                 if(!pages[page]) {
                     //如果pages[0]这一页不存在，就这里建一个
@@ -102,13 +64,13 @@ export default {
       position: absolute
       left: 0
       right: 0
-      top: 0
+      top: 0.1rem
       bottom: .44rem
       box-sizing: border-box
       padding: .06rem
       .icon-img-content
         display: block
-        height: 110%
+        height: 100%
         margin: 0 auto
     .icon-desc
       position: absolute

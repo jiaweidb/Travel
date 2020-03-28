@@ -2,7 +2,7 @@
   <div>
       <div class="title">热门推荐</div>
       <ul>
-          <li class="item" v-for="item of recommendList" :key="item.id">
+          <li class="item" v-for="item of list" :key="item.id">
             <img class="item-img" :src="item.imgUrl">
             <div class="item-info">
                 <p class="item-title">{{item.title}}</p>
@@ -17,25 +17,8 @@
 <script>
 export default {
     name: 'HomeRecommend',
-    data () {
-        return {
-            recommendList: [{
-                id: '0001',
-                imgUrl: "https://imgs.qunarzz.com/sight/p0/1610/96/96dd898b88f35cc0a3.water.jpg_200x200_4885de47.jpg",
-                title: "景德镇古窑民俗博览区",
-                desc: "春暖花开 走出室内 体验你和它的乐趣"
-            },{
-                id: '0002',
-                imgUrl: "https://imgs.qunarzz.com/sight/p0/1610/96/96dd898b88f35cc0a3.water.jpg_200x200_4885de47.jpg",
-                title: "景德镇古窑民俗博览区",
-                desc: "春暖花开 走出室内 体验你和它的乐趣"
-            },{
-                id: '0003',
-                imgUrl: "https://imgs.qunarzz.com/sight/p0/1610/96/96dd898b88f35cc0a3.water.jpg_200x200_4885de47.jpg",
-                title: "景德镇古窑民俗博览区",
-                desc: "春暖花开 走出室内 体验你和它的乐趣"
-            },]
-        }
+    props: {
+        list: Array
     }
 }
 </script>
