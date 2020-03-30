@@ -1,5 +1,5 @@
 <template>
-    <div class="title">
+    <div class="header">
         <router-link to='/'>
            <span class="iconfont header-back">&#xe624;</span>
         </router-link>
@@ -15,7 +15,7 @@ export default {
 
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl'
-  .title
+  .header
     position: relative
     line-height: $headerHeight
     height: $headerHeight
