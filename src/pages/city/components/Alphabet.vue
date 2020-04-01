@@ -1,11 +1,7 @@
 <template>
     <div class="list">
-        <ul>
-            <li class="item">A</li>
-            <li class="item">B</li>
-            <li class="item">C</li>
-            <li class="item">D</li>
-            <li class="item">E</li>
+        <ul v-for="(item, key) of cities" :key="key">
+            <li class="item">{{key}}</li>
         </ul>
     </div>
 </template>
@@ -13,13 +9,15 @@
 <script>
 export default {
     name: 'CityAlphabet',
-    
+   props:{
+            cities: Object
+    },
 }
 </script>
 
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl'
-  .list
+  .list /*盒子的弹性布局，按列排列；排列在列的中间；相对于body绝对定位，right: 0 靠近右边*/
     display: flex
     flex-direction: column
     justify-content: center
