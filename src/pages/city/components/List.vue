@@ -17,7 +17,11 @@
                     </div>
                 </div>
             </div>
-            <div class="area" v-for="(item, key) of cities" :key="key">
+            <div 
+              class="area" v-for="(item, key) of cities" 
+              :key="key"
+              :ref="key"  
+            >
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list" v-for="innerItem of item" :key="innerItem.id">
                     <div class="item border-bottom">{{innerItem.name}}</div>
@@ -33,10 +37,25 @@ export default {
     name: 'CityList',
     props: {
         hotCities: Array,
-        cities: Object
+        cities: Object,
+        letter: String
     },
     mounted () {
         this.scroll = new Bscroll(this.$refs.wrapper)
+    },
+    watch: {
+      //侦听点击的letter是否变化，一旦变化就执行下面的函数
+      letter () {
+        //BetterScroll提供给我们了这样一个接口：如果this,scroll不为空，可以自动滚到这个元素上
+        //this.scroll.scrollToElement
+        if(this.letter) {
+          //最后不加[0]的话v-for获得的是这个字母对应的area,加上[0]获得的就是对应的元素
+          const element = this.$refs[this.letter][0]
+          //这样输出的element为数组，可是这个scroll插件需要操作的是dom元素
+          //console.log(element)
+          this.scroll.scrollToElement(element)
+        }
+      }
     }
 }
 </script>
