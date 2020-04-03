@@ -16,6 +16,7 @@
                   class="search-item border-bottom" 
                   v-for="item of list" 
                   :key="item.id"
+                  @click="handleCityClick(item.name)"
                 >
                 {{item.name}}
                 </li>
@@ -32,6 +33,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
     name: 'CitySearch',
     props: {
@@ -55,6 +57,7 @@ export default {
                 clearTimeout(this.timer)
             }
             //让keyword为空时什么都不显示
+            //这里的return虽然不是返回一个值的作用，是让后面的代码停止执行
             if(!this.keyword){
                 this.list = []
                 return 
@@ -74,6 +77,15 @@ export default {
                 this.list = result
             },100)
         }
+    },
+    methods: {
+      handleCityClick (city) {
+        //this.$store.commit('changeCity', city)
+        //引入mapMutations之后可以改为
+        this.changeCity(city)
+        this.$router.push('/')
+      },
+      ...mapMutations(['changeCity'])
     },
     //在生命周期函数mounted函数里面
     //引入BScroll让搜索出的结果如果过多的话可以滚动
