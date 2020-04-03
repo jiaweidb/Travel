@@ -46,7 +46,7 @@ export default {
     watch: {
       //侦听点击的letter是否变化，一旦变化就执行下面的函数
       letter () {
-        //BetterScroll提供给我们了这样一个接口：如果this,scroll不为空，可以自动滚到这个元素上
+        //BetterScroll提供给我们了这样一个接口：如果this.scroll不为空，可以自动滚到这个元素上
         //this.scroll.scrollToElement
         if(this.letter) {
           //最后不加[0]的话v-for获得的是这个字母对应的area,加上[0]获得的就是对应的元素

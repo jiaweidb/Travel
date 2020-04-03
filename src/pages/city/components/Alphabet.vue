@@ -23,6 +23,7 @@ export default {
     props:{
             cities: Object
     },
+    //存放字母列表
     computed: {
         letters() {
             const letters = []
@@ -57,7 +58,8 @@ export default {
         },
         handleTouchMove (e) {
             if (this.touchStatus) { 
-                //这一句话可以优化，因为这个值是固定的，可以在updated生命函数钩子里写
+
+                //这一句话可以优化，因为这个值是固定的，可以在上面的updated生命函数钩子里写
                 //const startY = this.$refs['A'][0].offsetTop
 
                 //用timer做个节流--->降低move操作执行的频率
