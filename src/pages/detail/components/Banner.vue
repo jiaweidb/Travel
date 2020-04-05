@@ -78,7 +78,4 @@ export default {
         font-size: .24rem
         .iconfont
           font-size: .24rem
-        
-        
-      
 </style>
