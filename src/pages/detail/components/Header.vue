@@ -46,6 +46,10 @@ export default {
     },
     activated () {
       window.addEventListener('scroll', this.handleScroll)
+    },
+    /*对window这个全局事件进行解绑，这样避免在回到别的页面的时候。window.scrll也会引起绑定*/
+    deactivated () {
+      window.removeEventListener('scroll', this.handleScroll)
     }
 }
 </script>
