@@ -11,7 +11,7 @@
       <router-link to='/'>
            <span class="iconfont header-fixed-back">&#xe624;</span>
         </router-link>
-        城市选择
+        景点详情
     </div>
   </div>
 </template>
@@ -73,6 +73,7 @@ export default {
       color: #fff
       font-size: .4rem
   .header-fixed
+    z-index: 2
     position: fixed
     top: 0
     right: 0
