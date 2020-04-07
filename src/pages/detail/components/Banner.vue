@@ -2,18 +2,18 @@
   <div>
     <div class="banner" @click="handleCBannerClick">
         <div class="banner-img">
-            <img src='https://imgs.qunarzz.com/vs_ceph_vs_tts/27cb1a13-fd9e-4d28-ae24-1877d77fe612.jpg_r_390x260x95_b7bccd22.jpg' />
+            <img :src="bannerImg" />
         </div>
         <div class="banner-info">
-            <div class="info-title">踏春赏花全景特价含往返机票7日</div>
+            <div class="info-title">{{this.sightName}}</div>
             <div class="info-star banner-font">
                 <span class="iconfont">&#xe60f;</span>
-                39
+                {{this.bannerImgs.length}}
             </div>
         </div>
     </div>
     <common-gallary 
-      :imgs="imgs" 
+      :imgs="bannerImgs" 
       v-show="showGallary"
       @close="handleGallaryClose"
       ></common-gallary>
@@ -24,11 +24,14 @@
 import CommonGallary from 'common/gallary/Gallary'
 export default {
     name: 'DetailBanner',
+    props: {
+      sightName: String,
+      bannerImg: String,
+      bannerImgs: Array
+    },
     data () {
       return {
         showGallary: false,
-        imgs: ['https://img1.qunarzz.com/vs_ceph_vs_tts/9262aa27-498a-45b5-8013-c80d112ce7e9.png',
-                         'https://img1.qunarzz.com/vs_ceph_vs_tts/fc3a05f3-b829-41f7-9440-11823e76c281.png']
       }
     },
     components: {

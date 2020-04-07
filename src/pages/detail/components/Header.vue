@@ -43,7 +43,7 @@ export default {
           this.showAbs = true
         }
       }
-    },
+    }, 
     activated () {
       window.addEventListener('scroll', this.handleScroll)
     },
